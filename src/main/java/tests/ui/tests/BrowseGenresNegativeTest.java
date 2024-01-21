@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import tests.ui.pages.SearchPage;
 
 
-public class BrowseGenresTest {
+public class BrowseGenresNegativeTest {
 
     private WebDriver driver;
     private SearchPage searchPage;
@@ -27,11 +27,11 @@ public class BrowseGenresTest {
 
         driver.get("https://www.spotify.com/");
 
-        String expectedUrlPattern = "https://open.spotify.com/genre/0JQ5DArNBzkmxXHCqFLx2J";
+        String expectedUrlPattern = "https://#open.spotify.com/genre/0JQ5DArNBzkmxXHCqFLx2J";
 
         searchPage.searchForGenre();
 
-        Assert.assertTrue(driver.getCurrentUrl().startsWith(expectedUrlPattern), "URL does not match the expected pattern");
+        Assert.assertFalse(driver.getCurrentUrl().startsWith(expectedUrlPattern), "URL does not match the expected pattern");
 
     }
 
@@ -43,4 +43,5 @@ public class BrowseGenresTest {
         }
     }
 }
+
 

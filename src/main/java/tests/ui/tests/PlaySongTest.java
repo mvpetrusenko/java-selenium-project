@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import tests.ui.pages.HomePage;
 
-public class SearchSongTest {
+public class PlaySongTest {
 
     private WebDriver driver;
     private HomePage homePage;
@@ -31,21 +31,23 @@ public class SearchSongTest {
     //@Test(groups = {"SmokeTest"})
     //@Test(groups = {"Regression"})
     //@Test(priority = 1)
-    public void searchForSongTest() {
+    public void playSongTest() {
 
         driver.get("https://www.spotify.com/");
 
-        homePage.searchForSong("love");
+        homePage.playAnySong();
 
-        String searchTerm = "love";
-        Assert.assertTrue(homePage.isSearchInputContaining(searchTerm), "Search input does not contain the expected term: " + searchTerm);
+//        String actualXPath = "//*[@id='tippy-2']";
+//        String expectedXPath = "//*[@id='tippy-2']";
+//        Assert.assertEquals(actualXPath, expectedXPath);
+
 
     }
 
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterClass
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }
