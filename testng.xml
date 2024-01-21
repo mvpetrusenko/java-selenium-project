@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite">
+    <!--<test name="All Tests" parallel="tests" thread-count="5">  -->
+    <test name="All Tests">
+
+        <groups>
+            <run>
+                <include name="SmokeTest"/>
+                <include name="Regression"/>
+            </run>
+        </groups>
+
+
+        <classes>
+            <class name="tests.api.RestAssuredAPITest"/>
+
+
+
+        </classes>
+    </test>
+</suite>

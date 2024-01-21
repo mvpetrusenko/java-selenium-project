@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tips</title>
+</head>
+<body>
+
+<h5>
+    !!!!!! to open report (in the terminal in IDE):
+    <br>
+    ALT + Enter to import library
+    <br>
+    On Windows to comment several code lines: Ctrl + /
+    <br>
+    allure serve allure-results
+    <br>
+    to run API + UI test cases: run file testng.xml
+    <br>
+    <br>
+    <br>
+
+
+    Part 1
+    <br>
+    <br>
+    OK :
+
+    <br>
+    <br>
+    1. closeWindow() added
+    <br>
+    2. project has been restructured: added folder tests for PO tests
+    <br>
+    3. Jenkins has been installed, allure report plugin has been added to Jenkins
+    <br>
+    4. run test in testng.xml SmokeTest OK
+    <br>
+    <br>
+    <br>
+    NOK:
+    <br>
+    <br>
+
+    1. run tests in testng.xml group Regression NOK
+    <br>
+    2. Allure reports shows only Rest API results, but not also UI test results
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    Part 2
+    <br>
+    <br>
+
+    OK:
+    <br>
+    <br>
+    1. both SmokeTest and Regression test groups run OK<br>
+    the problem was in adding 2 groups for each SmokeTest and Regression,<br>
+    but must be only 1 group for these test groups, like:<br>
+    <br>
+
+
+
+    groups
+    <br>
+    run
+    <br>
+    include name="SmokeTest"/>
+    <br>
+    include name="Regression"/>
+    <br>
+    /run>
+    <br>
+    /groups>
+    <br>
+    <br>
+    <br>
+
+
+    2. both API and UI were not executed, only API after running testng.xml file
+    <br>
+    the problem was in SearchProductTest.java... files with method main
+    <br>
+    main method was renamed to testSearchProduct without any arguments
+    <br>
+    because testNG see only @Test as test methods.
+    <br>
+    That`s why UI tests with main method were NOT in the Allure report
+    <br>
+    instead before each UI test was added code:
+
+    <br>
+    <br>
+    @BeforeMethod(alwaysRun = true)
+    public void setUp()
+
+    <br>
+    to run opening browser, going to the main page and click Accept button before each UI test
+
+    <br>
+    <br>
+    Results:
+
+    <br>
+    <br>
+    1. from running testng.xml file BOTH smoke and regression tests PASSED
+    <br>
+    2. both API and UI tests are in Allure report
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    To update build in Jenkins
+    <br>
+    <br>
+    Configure - Source Code Management - enable checkbox Poll SCM - Schedule (* * * * *) to poll the repo every minute
+    <br>
+    Save and run build again
+
+
+
+    <br>
+    <br>
+    http://localhost:8080/job/Selenium%20Java%20Automated%20Test%20Execution/
+    <br>
+    <br>
+    <br>
+    http://localhost:8080/
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    To create new job in Jenkins:
+    <br>
+    <br>
+    1. New item - Configure
+    <br>
+    2. General - enable checkbox GitHub project - project url (https://github.com/mvpetrusenko/petrusenko-selenium-java-allure/)
+    <br>
+    3. Source code management - Git - repository url (https://github.com/mvpetrusenko/petrusenko-selenium-java-allure.git)
+    <br>
+    Credentials (admin/*****)
+    <br>
+    4. Branches to build - Branch Specifier (*/master)
+    <br>
+    5. Build Triggers - enable checkbox Poll SCM - Schedule (* * * * *)
+    <br>
+    6. Build steps - Invoke top-level Maven targets - Goals (clean verify)
+    <br>
+    7. Post-build Actions - Allure Report - Results - Path (allure-results)
+    <br>
+    8. Email Notifications - Recipients (put your email address) - enable checkbox Send e-mail for every unstable build
+    <br>
+    9. Build steps - Add build step - Invoke top-level Maven targets - Goals (test)
+    <br>
+    Advanced - POM (path to your pom.xml file of the project: C:\Users\Edward\IdeaProjects\selenium-java-allure-docker-jenkins)
+    <br>
+    Properties (-Dsurefire.suiteXmlFiles=path_to_testng_xml_file: -Dsurefire.suiteXmlFiles=C:\Users\Edward\IdeaProjects\selenium-java-allure-docker-jenkins/testng.xml
+    <br>
+    10. To add chromedriver to run UI tests in Jenkins build: Manage Jenkins - Manage Plugins
+    <br>
+    Available - search for plugin (Seleniumhq) or install chromedriver in Jenkins plugins
+    <br>
+
+    SAVE!!!
+    <br>
+
+
+
+
+    <br>
+    Commit to existing repository
+    <br>
+    1. git add .   (adding all files to commit)
+    <br>
+    2. git commit -m "commit message"
+    <br>
+    3. git push -u origin master
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+    Move local repository to already existed remote repository
+    <br>
+    1. In the IDE terminal: git init
+    <br>
+    2. git add.
+    <br>
+    3. git commit -m "initial commit or another message"
+    <br>
+    4. git branch (check what is local branch. I had master)
+    <br>
+    5. git remote add origin https://github.com/my_username/my_project.git
+    <br>
+    6. git push --force origin master:main
+    <br>
+
+
+
+    <br>
+    1. Screenshots on failed tests (SearchInvalidCategory)
+    <br>
+    2. Explicit/implicit waits
+    <br>
+    3. Logs (SearchCategoryTest)
+    <br>
+    4. testng.xml - run UI tests using // @Test (groups = {"Regression"}) !!!
+    <br>
+    5. Add report
+    <br>
+
+    <br>
+
+
+
+
+</h5>
+
+</body>
+</html>
