@@ -5,6 +5,7 @@
     <!--<test name="All Tests" parallel="tests" thread-count="5">  -->
     <test name="All Tests">
 
+
         <groups>
             <run>
                 <include name="SmokeTest"/>
@@ -15,6 +16,8 @@
 
         <classes>
             <class name="tests.api.RestAssuredAPITest"/>
+            <class name="tests.ui.tests.SearchSongTest"/>
+
 
 
 
