@@ -2,21 +2,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="All Test Suite">
-    <!--<test name="All Tests" parallel="tests" thread-count="5">  -->
-    <test name="All Tests">
+    <test name="All Tests" parallel="tests" thread-count="5">
+    <!-- <test name="All Tests">   -->
 
 
+
+        <!--
         <groups>
             <run>
                 <include name="SmokeTest"/>
                 <include name="Regression"/>
             </run>
-        </groups>
+        </groups>    -->
 
 
         <classes>
             <class name="tests.api.RestAssuredAPITest"/>
             <class name="tests.ui.tests.SearchSongTest"/>
+            <class name="tests.ui.tests.SearchSongNegativeTest"/>
+            <class name="tests.ui.tests.BrowseGenresTest"/>
+            <class name="tests.ui.tests.BrowseGenresNegativeTest"/>
+            <class name="tests.ui.tests.CreatePlaylistTest"/>
+
+
 
 
 
