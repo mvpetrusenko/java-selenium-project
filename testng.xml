@@ -23,6 +23,8 @@
             <class name="tests.ui.tests.BrowseGenresTest"/>
             <class name="tests.ui.tests.BrowseGenresNegativeTest"/>
             <class name="tests.ui.tests.CreatePlaylistTest"/>
+            <class name="tests.ui.tests.PlaySongTest"/>
+            <class name="tests.ui.tests.ShowAllPlaylistsTest"/>
 
 
 
