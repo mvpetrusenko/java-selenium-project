@@ -25,6 +25,7 @@
             <class name="tests.ui.tests.CreatePlaylistTest"/>
             <class name="tests.ui.tests.PlaySongTest"/>
             <class name="tests.ui.tests.ShowAllPlaylistsTest"/>
+            <class name="tests.ui.tests.InvalidLoginTest"/>
 
 
 
