@@ -3,6 +3,7 @@ package tests.ui.tests;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -30,16 +31,19 @@ public class InvalidLoginTest {
         driver.get("https://www.spotify.com/");
 
         // Perform login using the LoginPage
-        loginPage.login("your_username", "your_password");
+        loginPage.loginToProfile("your_username", "your_password");
 
-        // Add assertions or further actions as needed
+        String actualXPath3 = "//span[contains(@class, 'Message')]";
+        String expectedXPath3 = "//span[contains(@class, 'Message')]";
+        Assert.assertEquals(actualXPath3, expectedXPath3);
+
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
 

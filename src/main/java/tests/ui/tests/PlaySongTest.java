@@ -37,9 +37,9 @@ public class PlaySongTest {
 
         homePage.playAnySong();
 
-        String actualXPath = "//h2[contains(@class, 'RWLyS')]";
-        String expectedXPath = "//h2[contains(@class, 'RWLyS')]";
-        Assert.assertEquals(actualXPath, expectedXPath);
+        String actualXPath2 = "//h2[contains(@class, 'RWLyS')]";
+        String expectedXPath2 = "//h2[contains(@class, 'RWLyS')]";
+        Assert.assertEquals(actualXPath2, expectedXPath2);
 
 
     }
