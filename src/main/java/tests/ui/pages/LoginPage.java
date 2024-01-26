@@ -27,6 +27,7 @@ public class LoginPage extends HomePage {
 
 
 
+    //
     // Constructor
     //super: to call the constructor of the base page class from the constructor of the derived page class
     //public class DerivedPage extends BasePage
