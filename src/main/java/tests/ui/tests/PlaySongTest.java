@@ -37,17 +37,17 @@ public class PlaySongTest {
 
         homePage.playAnySong();
 
-//        String actualXPath = "//*[@id='tippy-2']";
-//        String expectedXPath = "//*[@id='tippy-2']";
-//        Assert.assertEquals(actualXPath, expectedXPath);
+        String actualXPath = "//h2[contains(@class, 'RWLyS')]";
+        String expectedXPath = "//h2[contains(@class, 'RWLyS')]";
+        Assert.assertEquals(actualXPath, expectedXPath);
 
 
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }

@@ -33,8 +33,18 @@ public class HomePage extends BasePage {
     private WebElement createNewPlaylistButton;
 
 
-    @FindBy(xpath = "/div[contains(@class, 'tsv')][1]")
+    @FindBy(xpath = "//div[contains(@class, 'tsv')][1]")
     private WebElement firstSongItem;
+
+
+    @FindBy(xpath = "//button[contains(@class, 'hCReiC')]")
+    private WebElement playSongButton;
+
+
+    @FindBy(xpath = "//a[contains(@href, '/section/0JQ5DA')][1]")
+    private WebElement showAllPlaylistsButton;
+
+
 
 
     // Constructor
@@ -106,15 +116,25 @@ public class HomePage extends BasePage {
         actions.moveToElement(firstSongItem).perform();
 
         // Perform click after the hover
-        //actions.click().perform();
+        actions.click().perform();
 
-//        addPlaylistButton.click();
-//
-//
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-//        wait.until(ExpectedConditions.elementToBeClickable(createNewPlaylistButton));
-//
-//
-//        createNewPlaylistButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(playSongButton));
+
+        playSongButton.click();
+
+    }
+
+
+    public void showAvailablePlaylists() {
+
+        acceptCookies();
+
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(showAllPlaylistsButton));
+
+        showAllPlaylistsButton.click();
+
+
     }
 }
